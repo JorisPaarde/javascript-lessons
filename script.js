@@ -1,17 +1,46 @@
-let boxes = document.getElementsByClassName("box");
+document.addEventListener("DOMContentLoaded". function () {
+    let buttons = document.getElementsByTagName("button");
 
-for (var i = 0; i < boxes.length; i++){
-boxes[i].addEventListener('click', boxClicked);
-}
-
-function boxClicked(event){
-    let clickedBox = document.getElementById(this.id);
-    let currentBackgroundColor = window.getComputedStyle(clickedBox).getPropertyValue('background-color');
-    
-    if(currentBackgroundColor == 'rgb(0, 128, 0)'){
-        clickedBox.style.backgroundColor = "orange";
-    }else if(currentBackgroundColor == 'rgb(255, 165, 0)'){
-        clickedBox.style.backgroundColor = "green";
+    for (let button of buttons){
+        button.addEventListener("click", function(){
+            if (this.getAttribute("data-type") === "submit"){
+                alert("You clicked sumit!");
+            }else{
+                let gameType = this.getAttribute("data-type");
+                alert(`You clicked ${gameType}`);
+            }
+        })
     }
+})
+
+function runGame(){
+
 }
 
+function checkAnwser(){
+    
+}
+
+function calculateCorrectanwser(){
+    
+}
+
+function incrementScore(){
+
+}
+
+function incrementWrongAnwser(){
+
+}
+
+function displayAdditionQuestion(){
+
+}
+
+function displaySubtractQuestion(){
+    
+}
+
+function displayMultiplyQuestion(){
+    
+}
