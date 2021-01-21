@@ -109,7 +109,24 @@ function displayMultiplyQuestion(operand1, operand2){
 }
 
 function displayDivisionQuestion(operand1, operand2){
-    document.getElementById("operand1").textContent = operand1 * operand2;
+    // switch if 1nd number is smaller than 2nd
+    if(operand1 < operand2){
+        let t = operand1;
+        operand1 = operand2;
+        operand2 = t;
+    }
+    // recalculate so division has no remainder
+    operand1 = (Math.floor(operand1 % operand2 +1) * operand2);
+    // rcalculate if numbers are equal
+    if(operand1 == operand2){
+        operand1 = operand1 + operand2;
+    }
+    // decrease number size while more than 3 digits
+    while(operand1 > 99){
+        operand1 = operand1 - operand2;
+    }
+
+    document.getElementById("operand1").textContent = operand1;
     document.getElementById("operand2").textContent = operand2;
     document.getElementById("operator").textContent = "/";
 }
